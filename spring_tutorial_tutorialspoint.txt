@@ -97,5 +97,22 @@ AOP helps you decouple cross-cutting concerns from objects that they affect.
 AOP module of spring framework provides AOP implementaiton , allows us to define method interceptors and 
 pointcuts to clearly decouple code that implements functionality that should be separated.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Page 3: Chapter 3
+Spring Framework Architecture
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Main building blocks of spring are called modules.
+
+you can use Spring as one stop shop for all you enterprise applications.
+however, Spring's Modularity allows you to pick and choose which modules are applicable to you and leave the rest.
+
+Spring framework provides about 20 modules..
+1.Core container
+  i.Core
+  ii.Beans
+  iii.Context
+  iv.Expression Language modules
+
 
 
