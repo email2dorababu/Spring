@@ -83,5 +83,19 @@ Aspect Oriented Programming(AOP):
 ********
 AOP framework is one of key component of Spring.
 
+The functions that span multiple points of an appication are called Cross-cutting Concerns.
+These Cross-cutting concerns are seperated from application's business logic.
+AOP is a programming paradigm that aims to increasemodularity by allowing the separation of cross-cutting concerns.
+
+Example for aspects including logging,declarative transactions, security and caching etc.
+
+Here, class is the key unit of modularity in OOP,
+aspect is the unit of modularity in AOP,
+where as DI helps you decouple application objects from each other and 
+AOP helps you decouple cross-cutting concerns from objects that they affect.
+
+AOP module of spring framework provides AOP implementaiton , allows us to define method interceptors and 
+pointcuts to clearly decouple code that implements functionality that should be separated.
+
 
 
