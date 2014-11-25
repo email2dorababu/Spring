@@ -1,0 +1,68 @@
+1. Rep("string",times=3)
+will repeat the string in no of "times"
+
+2.to install a library, 
+go to packages(on bottom right corner) ->Install ->choose "Install from" as from zip -> browse the package in zip.form -> enter
+
+3. Use the installed package
+library(SDSFoundations)   case sensitive contrl+Enter
+
+4.to use the data set in the package
+ bike<- BikeData
+ 
+5.to view the data set
+
+view(bike)
+
+6. toselect a element
+
+bike[8,7]
+
+7. to select first 10 rows, all columns
+bull[1:10,]
+
+7. to select first 10 rows, 9th columns
+bull[1:10,9]
+
+8. to get minimum of a column froma data frame,
+min(bull[,9]) or min(bull$BuckOuts)
+
+9. to access a column by bane we use dollor sign
+bull$BuckOuts i.e dataframe$column name
+
+10.TO compare the values
+bull$BuckOuts==min(bull$BuckOuts)
+
+11. to get all the values satisfied by the above equation
+bull$Rider[bull$BuckOuts==min(bull$BuckOuts)]
+
+12.to see histogram
+hist(bull$RidePer)
+hist(bull$Top10)
+fivenum(bull$Top10)
+mean(bull$Top10)
+sd(bull$Top10)
+
+13.TO draw scatter plot
+plot(bull$RidePer,bull$Top10)
+14.# Add line of best fit
+abline(lm(bull$Top10~bull$RidePer))
+
+15.# Calculate the correlation coefficient
+cor(bull$RidePer,bull$Top10)
+
+16.# Create a correlation matrix  
+vars <- c("Top10", "RidePer")
+cor(bull[,vars])
+
+17. to create a correlation matrix with more than two vairables is
+vars <-c("Top10", "RidePer","Rides")  , just add the variables to "vars"
+cor(bull[,vars])
+
+18 . to identify a specific record,
+#identify a specific record
+which(bull$Top10==5 & bull$RidePer==.53)
+
+19.To remove the fist line use the below
+#Subset the data
+nooutlier <-bull[-1,]
