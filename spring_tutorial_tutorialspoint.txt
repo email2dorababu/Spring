@@ -1,0 +1,88 @@
+##################################'
+Author:Dorababu G
+Created Date: Nov 24 2014, 1:08AM
+
+Last Updated Date:
+Last Updated By:
+
+Comments: This document is to intended as review/flash card for Spring Learning.
+##################################
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Page 1: Chapter 1
+Spring Framework Overview
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+what is spring?
+Spring is 
+the most popular 
+application development 
+framework 
+for 
+enterprise java.
+
+Millions of developers use spring framework to create 
+high performing
+easily testable
+reusable code.
+
+Spring framework is an open source java platform and initially written by Rod Johnson and first released in june 2003.
+
+It is light weight in size and transparent. Basic version of spring framework is around 2MB.
+
+We can develop any java application with Spring Core and it's extensions.
+
+********
+Benefits:
+********
+1.We can develop enterprise-class application using POJOs.
+Adv of POJOs is that you donot need an EJB container product such as application server, you can just use only a robust servlet container such as Tomcat or some commercial product.
+
+2.Spring is organized in a moular fashion.you can take only those classes/packages which are substantial and ignore the rest.
+
+3.You can reuse several ORM frameworks(hibernate),logging framework(log4j),JEE, Quartz and JDK timers , other view technologies.
+
+4.Testing an application written using Spring is simple because
+the environmental dependent code is moved into the Spring framework.
+Also using JAVA-Bean style POJOs , it is easier to use dependency injection for injecting test data.
+
+5.Spring framework is a well-defined web MVC framework.
+It provides great alternative to web frameworks such as Struts or other less popular web frameworks.
+
+6.Spring have a API to handle/translate technology specific exceptions(thrown by JDBC,Hibernate, or JDBC for ex) into consistent,unchecked exceptions.(unchecked are run time errors and checked are compile time exceptions).
+
+7.Ioc Container are lightweight compared to EJB container for example.This is beneficial for developing and deploying applications on computer with limited memory and CPU resources.
+
+8.Spring provides a consistent transaction management interface that can scale down to a loacal transaction( incase of using a single database, for example) and scale up to global transactions(using JTA,for example)
+
+
+
+********
+Dependency Injection(DI):
+********
+DI technology is a flavor of IoC. Spring is most identified with this DI technology.
+IOC is a general concept and it can be expressed in many different ways, DI is only one concrete example of inversion of control.
+
+While writing a complex java application, appliation classes should be
+i) as independent as possible of other java classes to increase the possibility of reuse these classes and 
+ii) test them as independently of other classes in unit tesiting.
+
+DI helps in gluing these classes together at the same time keeping them independent.
+
+What is DI exactly?
+Ex: class A is dependent on class B, this translates into Class B will get injected into Class A by IOC.
+Dependency translates into an Association between two classes.
+
+How dependency injection can happen?
+one way is passong parameters to constructor or 
+by post-construction using setter methods.
+
+DI is heart of Spring framework.
+
+********
+Aspect Oriented Programming(AOP):
+********
+
+
+
+
+
