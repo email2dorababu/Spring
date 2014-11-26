@@ -66,3 +66,24 @@ which(bull$Top10==5 & bull$RidePer==.53)
 19.To remove the fist line use the below
 #Subset the data
 nooutlier <-bull[-1,]
+
+%%%%%%%%%%%%%%%%%%%%
+Week 4 R videos
+%%%%%%%%%%%%%%%%%%%%%%%
+20.to display proportions table i.e probabilities of a contigency table
+prop.table(i/p is table)
+prop table is useful when we have contigency table or table with 2 catogory variables.
+
+21. to get proportions by row use 1, get proportions by column use 2
+prop.table(contigency table,1) or prop.table(contigency table,2)
+
+22. display barchart of prop table
+barplot(gtab,main="ACLgrammy winners" xlab="grammy winner" ylab="counts")
+above is for 1-d table
+For 2-d i.e contigency table data
+the barplot will display colored bars
+barplot(gtab2,main="ACLgrammy winners" xlab="grammy winner" ylab="counts")
+To display legend (i.e for legend for colors ) use legend=T T for true. 
+barplot(gtab2,legend=Tmain="ACLgrammy winners" xlab="grammy winner" ylab="counts")
+To have plot of bars with side by side use "beside=T" for stacked barchart.
+barplot(prop.table(gtab,2,beside=T)
