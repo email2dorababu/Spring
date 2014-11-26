@@ -87,3 +87,39 @@ To display legend (i.e for legend for colors ) use legend=T T for true.
 barplot(gtab2,legend=Tmain="ACLgrammy winners" xlab="grammy winner" ylab="counts")
 To have plot of bars with side by side use "beside=T" for stacked barchart.
 barplot(prop.table(gtab,2,beside=T)
+-------
+library(SDSFoundations)
+acl<-AustinCityLimits
+genre<-acl$Genre
+grammy<-acl$Grammy
+#howmany won grammy
+table(grammy)
+#create table to show the marginal distributions for genre and grammy
+twoway<-table(grammy,genre)
+twoway
+conttab<-prop.table(twoway)
+barplot(twoway,2,legend=T,beside=T)
+---
+library(SDSFoundations)
+acl<-AustinCityLimits
+
+#how many are on first 10 artists , grammy winners
+table(acl$Grammy[1:10])
+
+acl$Genre[acl$Gender=="F" & acl$Age>60]
+#---------------------
+genre<-acl$Genre
+gender<-acl$Gender
+genre
+gender
+#create contigency table
+twoway<-table(acl$Gender,acl$Genre)
+twoway
+
+barplot(prop.table(twoway),legend=T)
+
+prop.table(acl$Gender,table(acl$Gener))
+
+prop.table(twoway,1)
+
+barplot(twoway,legend=T,beside=T)
