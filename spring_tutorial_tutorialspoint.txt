@@ -98,7 +98,7 @@ AOP module of spring framework provides AOP implementaiton , allows us to define
 pointcuts to clearly decouple code that implements functionality that should be separated.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Page 3: Chapter 3
+Page 3: Chapter 2
 Spring Framework Architecture
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
