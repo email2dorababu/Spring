@@ -37,7 +37,7 @@ Benefits:
 1.We can develop enterprise-class application using POJOs.
 Adv of POJOs is that you donot need an EJB container product such as application server, you can just use only a robust servlet container such as Tomcat or some commercial product.
 
-2.Spring is organized in a moular fashion.you can take only those classes/packages which are substantial and ignore the rest.
+2.Spring is organized in a modular fashion.you can take only those classes/packages which are substantial and ignore the rest.
 
 3.You can reuse several ORM frameworks(hibernate),logging framework(log4j),JEE, Quartz and JDK timers , other view technologies.
 
