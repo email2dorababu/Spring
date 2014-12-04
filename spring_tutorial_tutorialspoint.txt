@@ -109,10 +109,42 @@ however, Spring's Modularity allows you to pick and choose which modules are app
 
 Spring framework provides about 20 modules..
 1.Core container
-  i.Core
-  ii.Beans
-  iii.Context
-  iv.Expression Language modules
+  i.Core   module -  provides fundamental parts of spring framework, including IOC & DI features.
+  ii.Beans module - provides BeanFactory , which is sophisticated implementation of factory pattern.
+  iii.Context - this module is a medium to access any objects defined and configured using Core and Beans modules. Application Context Interface is the focal point of Context module.
+  iv.Expression Language modules - provides powerful expression language for querying and manipulating an object graph at runtime.
+  -------------------
+Date: Dec 4,2014
+  ------------------
+2.Data Access/Integration
+  i.JDBC Module - provides JDBC abstraction layer that removes the need to do tedious JDBC related coding.
+  ii.ORM module - provides integration layer for popular object relational mapping APIs including JPA,JDO,Hibernate and iBatis.
+  iii.OXM module - provides abstration layer that supports Object/XML mapping implmentations for JAXB, Castor, XML Beans, JiBX and XStream.
+  iv. Java Messaging Service Module - contains features for producing and consuming messages.
+  v. Transaction module - supports programmatic and declarative transaction mgmt for classes that implement special interfaces and for all your POJOs.
+3.Web (MVC/Remoting)
+  i.Web Module - provides basic web-oriented integration features like, multipart file-upload functionality and initialization of IOC container using servlet listeners and Web-Oriented application context.
+  ii. Web-Servlet module - contains Spring's MVC implementation for web applicaitons.
+  iii. Web-Struts  - contains support classes for integrating a classic struts web tier within a Spring application.
+  iv. Web-Portlet - provides the MVC implementation to be used in a portlet environment and mirrors the functinality of web-servlet module.
+4. Miscellaneous
+  i.AOP module - provides AOP implementation to define method-interceptors and pointcuts to cleanly decouple the functinality code, where these two are to be separated.
+  ii. Aspects Module - provides integration with AspectJ , this AspectJ is a powerful and mature AOP framework.
+  iii. Instrumentation module - provides class instrumentation support and class loader implementations to be used in certain application servers.
+  iv. Test module - supports testing of spring components with JUnit or TestNG frameworks.
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
 
 
