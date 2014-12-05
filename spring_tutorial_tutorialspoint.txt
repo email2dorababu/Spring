@@ -35,11 +35,12 @@ We can develop any java application with Spring Core and it's extensions.
 Benefits:
 ********
 1.We can develop enterprise-class application using POJOs.
-Adv of POJOs is that you donot need an EJB container product such as application server, you can just use only a robust servlet container such as Tomcat or some commercial product.
+Adv of POJOs is that you donot need an EJB container product such as application server, you can just use only a robust servlet
+container such as Tomcat or some commercial product.
 
 2.Spring is organized in a modular fashion.you can take only those classes/packages which are substantial and ignore the rest.
 
-3.You can reuse several ORM frameworks(hibernate),logging framework(log4j),JEE, Quartz and JDK timers , other view technologies.
+3.You can reuse several ORM frameworks(hibernate),logging framework(log4j),JEE, Quartz and JDK timers, other view technologies.
 
 4.Testing an application written using Spring is simple because
 the environmental dependent code is moved into the Spring framework.
@@ -48,11 +49,14 @@ Also using JAVA-Bean style POJOs , it is easier to use dependency injection for 
 5.Spring framework is a well-defined web MVC framework.
 It provides great alternative to web frameworks such as Struts or other less popular web frameworks.
 
-6.Spring have a API to handle/translate technology specific exceptions(thrown by JDBC,Hibernate, or JDBC for ex) into consistent,unchecked exceptions.(unchecked are run time errors and checked are compile time exceptions).
+6.Spring have a API to handle/translate technology specific exceptions(thrown by JDBC,Hibernate or JDBC for ex) into consistent,
+unchecked exceptions.(unchecked are run time errors and checked are compile time exceptions).
 
-7.Ioc Container are lightweight compared to EJB container for example.This is beneficial for developing and deploying applications on computer with limited memory and CPU resources.
+7.Ioc Container are lightweight compared to EJB container for example.This is beneficial for developing and deploying 
+applications on computer with limited memory and CPU resources.
 
-8.Spring provides a consistent transaction management interface that can scale down to a loacal transaction( incase of using a single database, for example) and scale up to global transactions(using JTA,for example)
+8.Spring provides a consistent transaction management interface that can scale down to a loacal transaction( incase of using a 
+single database, for example) and scale up to global transactions(using JTA,for example)
 
 
 
@@ -60,7 +64,7 @@ It provides great alternative to web frameworks such as Struts or other less pop
 Dependency Injection(DI):
 ********
 DI technology is a flavor of IoC. Spring is most identified with this DI technology.
-IOC is a general concept and it can be expressed in many different ways, DI is only one concrete example of inversion of control.
+IOC is a general concept and it can be expressed in many different ways,DI is only one concrete example of inversion of control.
 
 While writing a complex java application, appliation classes should be
 i) as independent as possible of other java classes to increase the possibility of reuse these classes and 
@@ -111,26 +115,34 @@ Spring framework provides about 20 modules..
 1.Core container
   i.Core   module -  provides fundamental parts of spring framework, including IOC & DI features.
   ii.Beans module - provides BeanFactory , which is sophisticated implementation of factory pattern.
-  iii.Context - this module is a medium to access any objects defined and configured using Core and Beans modules. Application Context Interface is the focal point of Context module.
-  iv.Expression Language modules - provides powerful expression language for querying and manipulating an object graph at runtime.
+  iii.Context - this module is a medium to access any objects defined and configured using Core and Beans modules. 
+    Application Context Interface is the focal point of Context module.
+  iv.Expression Language modules - provides powerful expression language for querying and manipulating an object graph at 
+  runtime.
   -------------------
 Date: Dec 4,2014
   ------------------
 2.Data Access/Integration
   i.JDBC Module - provides JDBC abstraction layer that removes the need to do tedious JDBC related coding.
-  ii.ORM module - provides integration layer for popular object relational mapping APIs including JPA,JDO,Hibernate and iBatis.
-  iii.OXM module - provides abstration layer that supports Object/XML mapping implmentations for JAXB, Castor, XML Beans, JiBX and XStream.
+  ii.ORM module -provides integration layer for popular object relational mapping APIs including JPA,JDO,Hibernate and iBatis.
+  iii.OXM module - provides abstration layer that supports Object/XML mapping implmentations for JAXB, Castor, XML Beans, JiBX 
+  and XStream.
   iv. Java Messaging Service Module - contains features for producing and consuming messages.
-  v. Transaction module - supports programmatic and declarative transaction mgmt for classes that implement special interfaces and for all your POJOs.
+  v. Transaction module - supports programmatic and declarative transaction mgmt for classes that implement special interfaces 
+  and for all your POJOs.
 3.Web (MVC/Remoting)
-  i.Web Module - provides basic web-oriented integration features like, multipart file-upload functionality and initialization of IOC container using servlet listeners and Web-Oriented application context.
+  i.Web Module - provides basic web-oriented integration features like, multipart file-upload functionality and initialization 
+  of IOC container using servlet listeners and Web-Oriented application context.
   ii. Web-Servlet module - contains Spring's MVC implementation for web applicaitons.
   iii. Web-Struts  - contains support classes for integrating a classic struts web tier within a Spring application.
-  iv. Web-Portlet - provides the MVC implementation to be used in a portlet environment and mirrors the functinality of web-servlet module.
+  iv. Web-Portlet - provides the MVC implementation to be used in a portlet environment and mirrors the functinality of 
+  web-servlet module.
 4. Miscellaneous
-  i.AOP module - provides AOP implementation to define method-interceptors and pointcuts to cleanly decouple the functinality code, where these two are to be separated.
+  i.AOP module - provides AOP implementation to define method-interceptors and pointcuts to cleanly decouple the functinality 
+  code, where these two are to be separated.
   ii. Aspects Module - provides integration with AspectJ , this AspectJ is a powerful and mature AOP framework.
-  iii. Instrumentation module - provides class instrumentation support and class loader implementations to be used in certain application servers.
+  iii. Instrumentation module - provides class instrumentation support and class loader implementations to be used in certain 
+  application servers.
   iv. Test module - supports testing of spring components with JUnit or TestNG frameworks.
   
   
@@ -182,13 +194,15 @@ Spring Hello World Example
   Once you have object, you can call any of it's class methods.
   3. The Bean configuration file is an XML file, acts as cement that glues the beans/classes together.
     You can choose any name, but generally it is kept as "Beans.xml".
-    You have to make sure that this file is available in CLASSPATH and use the same name in main application while creatting ApplicationContext shown in MainApp.java.
+    You have to make sure that this file is available in CLASSPATH and use the same name in main application while creatting 
+    ApplicationContext shown in MainApp.java.
   
   Beans.xml is used to assign 
   i. unique IDs to different beans and 
   ii.Control the creation of objects with different values(i.e initialization of diff values to class variable via setters )
   without changing any of the Spring Source files.
-  Here in this example, we can pass any value for "message" variable , so you can print diff values of message without changing HelloWorld.java and MainApp.java files.
+  Here in this example, we can pass any value for "message" variable , so you can print diff values of message without changing
+  HelloWorld.java and MainApp.java files.
   
   How it works? 
   When Spring application gets loaded into the memory, 
