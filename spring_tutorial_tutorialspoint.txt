@@ -134,8 +134,20 @@ Date: Dec 4,2014
   iv. Test module - supports testing of spring components with JUnit or TestNG frameworks.
   
   
-  
-  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Page 13: Chapter 3
+Spring Environment Setup
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Step 1 - Setup JDK
+Set PATH(till bin) and JAVA_HOME(without bin)
+Step 2 - Install Apache Common Logging API.
+download from http://commons.apache.org/logging/ unzip the folder and set your classpath to this folder
+Step 3- Setup Eclipase IDE.
+Step 4- Setup Spring Framework Libraries
+download from http://www.Springsource.org/download.
+Unzip the zip file, you will find dist,projects and src folders.
+
   
   
   
