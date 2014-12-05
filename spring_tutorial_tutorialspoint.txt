@@ -169,7 +169,7 @@ Spring Hello World Example
   Create Bean Configuration file which is an XML file that glues the beans i.e classes together.
   Note this need to be created under src directory(not inside the package).
   
-  
+  Step 5 - Run the program (RUn or use Ctrl + F11 ) to compile and run you MainApp application.
   
   
   
