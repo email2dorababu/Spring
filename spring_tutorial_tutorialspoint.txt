@@ -147,7 +147,24 @@ Step 3- Setup Eclipase IDE.
 Step 4- Setup Spring Framework Libraries
 download from http://www.Springsource.org/download.
 Unzip the zip file, you will find dist,projects and src folders.
-
+You will find all the spring libraries in DIST directory. Set your class path to include this folder.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Page 17: Chapter 4
+Spring Hello World Example
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  Step 1 - Create Java Project 
+  File->New->Java Project, name HelloSpring
+  Step 2 - Add Required Libraries
+  Right click on your Project, goto Build Path->Configure Build Path -> Add Externa Jars under Libraries
+  1.Add following Core Jars from Spring
+  aop,asm,aspects,beans,context.support,context,core,expression
+  2.Add Common Logging 
+  commons-logging .jar
+  3.Antlr-runtime .jar
+  
+  Step 3 - Create Source Files
+    3.1 create package com.dora in src folder by new->Package
+    Create HelloWorld.java and MainApp.java in the above com.dora package.
   
   
   
