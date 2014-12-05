@@ -165,7 +165,9 @@ Spring Hello World Example
   Step 3 - Create Source Files
     3.1 create package com.dora in src folder by new->Package
     Create HelloWorld.java and MainApp.java in the above com.dora package.
-  
+  Step 4 - Create Bean Configureation File
+  Create Bean Configuration file which is an XML file that glues the beans i.e classes together.
+  Note this need to be created under src directory(not inside the package).
   
   
   
