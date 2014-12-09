@@ -35,11 +35,10 @@ We can develop any java application with Spring Core and it's extensions.
 Benefits:
 ********
 1.We can develop enterprise-class application using POJOs.
-Adv of POJOs is that you donot need an EJB container product such as application server, you can just use only a robust servlet
-container such as Tomcat or some commercial product.
+Adv of POJOs is that you donot need an EJB container product such as application server, you can just use only a robust 
+servlet container such as Tomcat or some commercial product.
 
 2.Spring is organized in a modular fashion.you can take only those classes/packages which are substantial and ignore the rest.
-
 3.You can reuse several ORM frameworks(hibernate),logging framework(log4j),JEE, Quartz and JDK timers, other view technologies.
 
 4.Testing an application written using Spring is simple because
@@ -49,14 +48,14 @@ Also using JAVA-Bean style POJOs , it is easier to use dependency injection for 
 5.Spring framework is a well-defined web MVC framework.
 It provides great alternative to web frameworks such as Struts or other less popular web frameworks.
 
-6.Spring have a API to handle/translate technology specific exceptions(thrown by JDBC,Hibernate or JDBC for ex) into consistent,
-unchecked exceptions.(unchecked are run time errors and checked are compile time exceptions).
+6.Spring have a API to handle/translate technology specific exceptions(thrown by JDBC,Hibernate or JDBC for ex) into 
+consistent, unchecked exceptions.(unchecked are run time errors and checked are compile time exceptions).
 
 7.Ioc Container are lightweight compared to EJB container for example.This is beneficial for developing and deploying 
 applications on computer with limited memory and CPU resources.
 
-8.Spring provides a consistent transaction management interface that can scale down to a loacal transaction( incase of using a 
-single database, for example) and scale up to global transactions(using JTA,for example)
+8.Spring provides a consistent transaction management interface that can scale down to a loacal transaction( incase of using 
+a single database, for example) and scale up to global transactions(using JTA,for example)
 
 
 
@@ -64,7 +63,8 @@ single database, for example) and scale up to global transactions(using JTA,for 
 Dependency Injection(DI):
 ********
 DI technology is a flavor of IoC. Spring is most identified with this DI technology.
-IOC is a general concept and it can be expressed in many different ways,DI is only one concrete example of inversion of control.
+IOC is a general concept and it can be expressed in many different ways,DI is only one concrete example of inversion of 
+control.
 
 While writing a complex java application, appliation classes should be
 i) as independent as possible of other java classes to increase the possibility of reuse these classes and 
@@ -123,16 +123,16 @@ Spring framework provides about 20 modules..
 Date: Dec 4,2014
   ------------------
 2.Data Access/Integration
-  i.JDBC Module - provides JDBC abstraction layer that removes the need to do tedious JDBC related coding.
-  ii.ORM module -provides integration layer for popular object relational mapping APIs including JPA,JDO,Hibernate and iBatis.
-  iii.OXM module - provides abstration layer that supports Object/XML mapping implmentations for JAXB, Castor, XML Beans, JiBX 
-  and XStream.
+  i.JDBC Module- provides JDBC abstraction layer that removes the need to do tedious JDBC related coding.
+  ii.ORM module-provides integration layer for popular object relational mapping APIs including JPA,JDO,Hibernate and iBatis.
+  iii.OXM module-provides abstration layer that supports Object/XML mapping implmentations for JAXB, Castor, XML Beans, 
+  JiBX and XStream.
   iv. Java Messaging Service Module - contains features for producing and consuming messages.
-  v. Transaction module - supports programmatic and declarative transaction mgmt for classes that implement special interfaces 
-  and for all your POJOs.
+  v. Transaction module - supports programmatic and declarative transaction mgmt for classes that implement special 
+  interfaces and for all your POJOs.
 3.Web (MVC/Remoting)
-  i.Web Module - provides basic web-oriented integration features like, multipart file-upload functionality and initialization 
-  of IOC container using servlet listeners and Web-Oriented application context.
+  i.Web Module - provides basic web-oriented integration features like, multipart file-upload functionality and 
+  initialization  of IOC container using servlet listeners and Web-Oriented application context.
   ii. Web-Servlet module - contains Spring's MVC implementation for web applicaitons.
   iii. Web-Struts  - contains support classes for integrating a classic struts web tier within a Spring application.
   iv. Web-Portlet - provides the MVC implementation to be used in a portlet environment and mirrors the functinality of 
@@ -194,15 +194,15 @@ Spring Hello World Example
   Once you have object, you can call any of it's class methods.
   3. The Bean configuration file is an XML file, acts as cement that glues the beans/classes together.
     You can choose any name, but generally it is kept as "Beans.xml".
-    You have to make sure that this file is available in CLASSPATH and use the same name in main application while creatting 
+    You have to make sure that this file is available in CLASSPATH and use the same name in main application while creatting
     ApplicationContext shown in MainApp.java.
   
   Beans.xml is used to assign 
   i. unique IDs to different beans and 
-  ii.Control the creation of objects with different values(i.e initialization of diff values to class variable via setters )
+  ii.Control the creation of objects with different values(i.e initialization of diff values to class variable via setters)
   without changing any of the Spring Source files.
-  Here in this example, we can pass any value for "message" variable , so you can print diff values of message without changing
-  HelloWorld.java and MainApp.java files.
+  Here in this example, we can pass any value for "message" variable , so you can print diff values of message without 
+  changing  HelloWorld.java and MainApp.java files.
   
   How it works? 
   When Spring application gets loaded into the memory, 
@@ -248,7 +248,48 @@ org.springframework.beans.factory.BeanFactory interface. this is still present i
 Backward compatibility with large no of 3rd party frameworks that integrate with spring.
 
 ApplicationContext Container - adds more enterprise-specific functionality such as, 
-  1.resolve textual msgs from properties file and 
+  1.resolve textual msgs from properties file 
+  2. ability to publish application events to interested event listeners.
+Thi container is defined by org.springframework.context.ApplicationContext interface.
+
+the AC container is generally recommended over BF container. BF can still be used for light weight applications like
+mobile devices or applet based applications where data volume and speed is significant.
+
+BeanFactory Example is skipped.
+-----------------------------------------
+SPRING APPLICATION CONTEXT CONTAINER:
+-----------------------------------------
+Page-26 :
+ ApplicationContext is Spring's more advanced container. 
+ Similar to BF, it can load bean definitions, wire beans together and 
+     dispense(distribute or privide to no of ppl) upon request.
+ Additionally it adds more enterprise-specific functionality(above said 2 points)
+ this Container is defined by org.springframework.context.ApplicationContext interface.
+ 
+ Q) what are the most commonly used application context implementations?
+  i.FileSystemXmlApplicationContext- this container loads definitions of beans from XML file. Here you need to provide the
+  full path of the XML bean configuration file to the constructor.
+  ii.ClassPathXmlApplicationContext- this container loads the definitions of beans from an XML file.
+    Here you donot need to provide the full path of the XML file, this container will look bean config XML file in CLASSPATH.
+  iii. WebXmlApplicationContext- this container loads the XML file with definitions of all beans from within a web application.
+  We will learn WebXmlApplicationContext whill discussing Web Based Spring Applications.
+  
+  pg 27:
+  Steps in Main program of HelloWorld example.
+  1. Create factory object i.e FileSystemXmlAC/ClassPathXmlAC/WebXmlAC by loading the bean configuration file from given path,
+  The AC api takes care of creating and initializing all the objects i.e beans mentioned in the XML bean config file.
+  2. Get required bean using getBean() method of the created context. 
+    the getBean() method uses Bean ID to return a "generic object",
+    finally we can cast the generic object to actual object.
+    You can use this object to call any of its class methods.
+Bean configuration file includes below,
+ i. bean id , ii. Bean class, iii. bean properties, each property is name value pair.
+ 
+
+
+
+
+
   
   
   
