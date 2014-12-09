@@ -215,7 +215,22 @@ Spring Hello World Example
 Page 23: Chapter 5
 Spring IoC Containers
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  
+Date:9Dec2014
+Spring Container is the core of spring framework.
+Spring container will 
+1.create objects
+2.wire objets together
+3.configure objects
+4.manage complete life cycle from creation till destruction.
+
+Spring Container uses DI to manage the components that make up an application.
+The Objets are called Spring Beans.
+
+Q) from where the spring container gets its instruction on what objects
+  i)to instantiate
+  ii)Configure
+  iii) and asssemble ?
+A) Spring container reads the configuration metadata provided, and does all above actions.
   
   
   
