@@ -232,7 +232,23 @@ Q) from where the spring container gets its instruction on what objects
   iii) and asssemble ?
 A) Spring container reads the configuration metadata provided, and does all above actions.
   
-  
+Q) How many ways we can represent COnfiguration metadata?
+A) i. Configuration metadata can be represented by XML,ii.Java Annotations,iii.Java code.
+
+Spring container use i. Java POJO classess and ii.Configuration metadata to produce 
+a fully configured and executable application/system, i.e ready to use application.
+
+
+Containers provided by Spring - 2 distinct types:
+1. Spring BeanFactory Container
+2. Spring ApplicationContext Container
+
+BeanFactory container is the simplest and provides basic support for DI defined by 
+org.springframework.beans.factory.BeanFactory interface. this is still present in Spring for 
+Backward compatibility with large no of 3rd party frameworks that integrate with spring.
+
+ApplicationContext Container - adds more enterprise-specific functionality such as, 
+  1.resolve textual msgs from properties file and 
   
   
   
