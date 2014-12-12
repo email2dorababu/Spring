@@ -10,3 +10,24 @@ the objects(called Beans) are managed by the Spring IOC container.
 A Bean is an object that is instantiated, assembled, and managed by Spring IOC container.
 
 These Beans are created with the configuration metadata supplied to the container in the form of <bean/> definitions.
+
+Bean definition contains the information called - Configuration Metadata
+This configuration metata data is needed for container to know the following.
+1)how to create a bean
+2)Bean's lifecycle details
+3)Bean's dependencies
+
+Configuration Metadata translates into below set of properties that forms bean definition.
+Properties - Description
+1.Class    - Mandatory attribute, specifies the bean class to be used to create the bean.
+2.Name     - Specifies the bean unique identifier. In XML based configuration , you use ID/NAME attribute to specify the bean 
+identifier.
+3.Scope    - Specifies the scope of the objects created from a bean definition.
+4.Constructor-arg -this is used to inject the dependencies 
+5.Properties  - This is used to inject the dependencies
+6.Autowiring Mode - This is used to inject the dependencies.
+7.Lazy-Initialization mode - A Lazy initialized bean tells the IOC container -
+  - to create a bean instance when it is first requested, instead of creating it at startup.
+8.Initialization method - A callback to be called just after all necessary properties on the bean have been set by the 
+container.
+9.destruction method - A call back to be used when the container containing bean is destroyed.
