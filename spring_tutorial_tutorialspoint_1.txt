@@ -102,9 +102,33 @@ Spring Bean Life Cycle
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Date 12thDec2014
 
+The life cycle of a Spring bean is easy to understand.
 
+WHen a bean is instantiated, it may be required to perform some initialization to get it into a usable state.
+Similarly when the bean is no longer required, some clean up may be required while the container removes the bean.
 
+There is list of activities that takes place behind the scenes between instantiation and its destruction of a bean.
+We will discuss only two important bean lifecycle callback methods-
+1.Initialization callbacks
+2.Destruction callbacks
 
+To setup these methods, we simply declare the <bean> with init-method and destroy-method parameters.
+init-method specifies a method that is to be called on the bean "immediately upon instantiation".
+similarly destroy-method specifies a method that is called "just before a bean is removed" from the container.
+
+Initialization callbacks :
+--------------------------
+Here you can do two types of initialization callbacks.
+1. implement afterPropertiesSet() method in org.springfamework.beans.factory.initializingBean interface.
+in this interface has a single method - 
+void afterPropertiesSet() throws Exception;
+
+You can simply implement above interface and initializtion work canbe  done inside afterPropertiesSet() method.
+Public class ExampleBean implements InitializationBean{
+  public void afterPropertiesSet(){
+    // do some initialization work
+  }
+}
 
 
 
