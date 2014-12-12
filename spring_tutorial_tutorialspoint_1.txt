@@ -2,3 +2,11 @@
 CHAPTER 6
 Spring Bean Definition
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Date 12thDec2014
+
+Beans are the objects that form the backbone of your application. 
+the objects(called Beans) are managed by the Spring IOC container.
+
+A Bean is an object that is instantiated, assembled, and managed by Spring IOC container.
+
+These Beans are created with the configuration metadata supplied to the container in the form of <bean/> definitions.
