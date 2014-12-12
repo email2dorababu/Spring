@@ -31,3 +31,96 @@ identifier.
 8.Initialization method - A callback to be called just after all necessary properties on the bean have been set by the 
 container.
 9.destruction method - A call back to be used when the container containing bean is destroyed.
+-----------------------------------------
+
+Spring Configuration Metadata :    Spring IOC container is totally decoupled from the FORMAT in which the confuguration-
+---------------------------------
+- metadadata is actually written. 
+Below are the important methods to provide configuration metadata to Spring Container-
+1. XML based configuration file.
+2. Annotation based configuation
+3. Java-based configuration
+-----
+Example 
+<!-- A simple bean definition -->
+  <bean id="..." class="..."> 
+  <!-- Configuration & collaborators for this bean go here -->
+  </bean>
+<!-- Bean def with lazy init set on -->
+  <bean id="..." class="..."  lazy-init="true"> 
+  <!-- Configuration & collaborators for this bean go here -->
+  </bean>
+<!-- Bean def with initialization method -->
+  <bean id="..." class="..."  init-method="..."> 
+  <!-- Configuration & collaborators for this bean go here -->
+  </bean>
+<!-- Bean def with destruction method -->
+  <bean id="..." class="..."  destroy-method="..."> 
+  <!-- Configuration & collaborators for this bean go here -->
+  </bean>
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CHAPTER 7
+Spring Bean Scopes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Date 12thDec2014
+
+In <bean> definition of spring, you can declare SCOPE for that bean.
+Spring framework supports FIVE scopes. THREE of which are available only if you use a web-aware ApplicationContext.
+SCOPE - Description:
+1.Singleton - this scopes the bean definition to a single instance per Spring IOC container(default).
+2.Prototype - This scopes the bean definition to have any no of object instances.
+3.request - This scopes a bean def to an HTTP request. Only valid in the context of a web-aware spring ApplicationContext.
+4.Session - This scopes a bean def to an HTTP Session. Only valid in the context of a web-aware spring ApplicationContext.
+5.Global Session - This scopes a bean def to a global HTTP Session. Only valid in the context of a 
+web-aware spring ApplicationContext.
+
+1. SINGLETON SCOPE :
+------------------------
+If scope is set to Singleton- the Spring IOC container creates exactly one instance of the object defined by bean definition.
+This Single instance is stored in a cache of such singleton beans, and all subsequent requests and referenes for that named
+bean return the cached object.
+The default scope is always singleton. However, if you need one and only one instance of a bean, you set the scope
+properly to singleton in the bean configuration file.
+<bean id="..." class="..." scope="singleton"> <!-- configuration --> </bean>
+
+Example on Page 33:
+
+2. PROTOTYPE SCOPE :
+------------------------
+If scope is set to prototype, the Spring IoC container creates a new bean instance of the object everytime a request for 
+that specific bean is made. 
+######################
+NOTE: As a rule, use the prototype scope for all State-full beans and singleton scope for stateless beans.
+######################
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CHAPTER 8
+Spring Bean Life Cycle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Date 12thDec2014
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
