@@ -36,3 +36,39 @@ postProcessBeforeInitialization and PostProcessAfterInitialization returns Objec
  destroy methods.
  You can implement more complex logic before and after instantiating a bean because you have access on bean object inside both
  the post processor methods.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CHAPTER 10
+Spring Bean Definition Inheritance :
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Date 16thDec2014
+Here we will discuss Inheritance in Beans.
+
+A bean definition contain a lot of configuration.
+including 
+constructor args, 
+property values , 
+container specific information such as 
+   initialization method,
+   static factory method name adn so on.
+
+A child bean definition inherits configuration data from a parent definition.
+A child definition can override some values, or add others as needed.
+
+Here Spring Bean definition inheritane has nothing to do with Java class inheritance, but the inheritance concept is same.
+You can define a parent bean definition as a template and other child beans can inherit reqired configuration from the prent
+bean.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
