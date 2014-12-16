@@ -28,3 +28,11 @@ Example :
 pg 34:
 InitHelloWorld implements BPP and have 2 methods : 
 postProcessBeforeInitialization and PostProcessAfterInitialization returns Object(i.e Bean).
+ you need to define this in configuration XML without any id etc.
+ <bean class="com.tutorialspoint.InitHelloWorld" />
+ 
+ Following is the content of the MainApp.java file. Here you need to register a shutdown "hookregisterShutdownHook()" method
+ that is declared on the AbstractApplicationContext class. This will ensures a graceful shutdown and calls the relevant
+ destroy methods.
+ You can implement more complex logic before and after instantiating a bean because you have access on bean object inside both
+ the post processor methods.
