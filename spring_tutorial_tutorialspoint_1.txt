@@ -158,4 +158,17 @@ you can use the destroy-method attribute to specify the name of the method that 
 
 public class ExampleBean { public void destroy() { // do some destruction work } }
 
+----------------
+Note : if you are using Spring IoC container in a non-web application environment, like a rich client desktop environment,
+you register a shutdwon hook with the JVM. Doing so ensure a graceful shutdown and calls the relevant destroy methods on your singleton beans so that all resources are released.
+
+Note - it is also recommended that you do not use the InitializingBean or DisposableBean callbacks, because XML configuration gives much flexibility in terms of naming your method.
+
+Example page 32 : 
+context.registerShutdownHook();
+Here you need to register a shutdown hookregisterShutdownHook() method that is declared on the AbstractApplicationContext class. This will ensures a graceful shutdown and calls the relevant destroy methods.
+
+Default initialization and destroy methods :
+-----------------------------------------------
+If you have too many beans having initialization and or destroy methods with the same name, you don't need to declare init-method and destroy-method on each individual bean. Instead framework provides the flexibility to configure such situation using default-init-method and default-destroy-methodattributes on the <beans> element.
 
