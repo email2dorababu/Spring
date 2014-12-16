@@ -130,21 +130,32 @@ Public class ExampleBean implements InitializationBean{
   }
 }
 
+2. second method is to use XML-based configuration.
 
+you can use the init-method attribute to specify the name of the method that has a void no-argument signature.
 
+<bean id="exampleBean" class="examples.ExampleBean" init-method="init"/>
+Following is the class definition: ::::
+public class ExampleBean { 
+  public void init() {  // this is a void no-ars constructor.
+  // do some initialization work
+  }
+  }
 
+Destruction callbacks :
+-------------------------
+2 ways of using destruction methods.
+1. implement org.springframework.beans.factory.DisposableBean interface this have the below method:
+void destroy() throws Exception;
+public class ExampleBean implements DisposableBean { 
+    public void destroy() { // do some destruction work 
+  } 
+}
 
+2. Another way by using XML-based configuration metadata.
+you can use the destroy-method attribute to specify the name of the method that has a void no-argument signature.
+<bean id="exampleBean" class="examples.ExampleBean" destroy-method="destroy"/>
 
-
-
-
-
-
-
-
-
-
-
-
+public class ExampleBean { public void destroy() { // do some destruction work } }
 
 
