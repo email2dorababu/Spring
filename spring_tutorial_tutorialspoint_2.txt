@@ -1,1 +1,30 @@
-abc
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CHAPTER 9
+Spring Bean Post Processors :
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Date 16thDec2014
+Previous chapter we studied Initialization and destruction callback methods.
+This chapter we study BeanPostProcessors.
+BeanPostPorcessor - is an interface that defines callback methods - 
+that you can implement to provide your own 
+i) instantiation logic
+ii)Dependency resolution logic etc.
+
+You can also implement some custom logic after the spring container finished instantiating,configuring and initializing a bean
+by plugging in one or more BeanPostProcessor implementations.
+
+you can configure multiple BeanPostProcessors interfaces and you can control the order in which these BeanPostProcessor 
+interfaces execute by setting - the "order" property.
+This order property will be available when BPP implements "Ordered" interface.
+
+BPP operate on bean(or object) instances, this means that the spring IoC container instantiates a bean instance and then
+BPP interface is intantiated to do their work.
+
+ApplicationContext automatically detects any beans that are defined with implementation of the BPP interface and
+registers these beans as post-processors. and then these BPPs are called apprpriately by the container upon bean creation.
+
+Example :
+--------- 
+pg 34:
+InitHelloWorld implements BPP and have 2 methods : 
+postProcessBeforeInitialization and PostProcessAfterInitialization returns Object(i.e Bean).
