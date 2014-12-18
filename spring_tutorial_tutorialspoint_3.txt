@@ -1,1 +1,31 @@
-abc
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CHAPTER 11
+Spring Dependency Injection
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Date 18thDec2014
+page 41
+
+Every Java based application has a few objects that work together , makes a working application, which end user sees/uses.
+When writing a complex java application, application classes should be 
+as independent as possible of other java classes to
+    increase the reuse of these classes and 
+    to test them independently of other classes while doing the unit testing.
+    
+Dependency injection (or sometimes called wiring) helps in gluing these classes together also keeps them independent.
+
+Example :
+public class TextEditor { 
+  private SpellChecker spellChecker; 
+  public TextEditor() { 
+    spellChecker = new SpellChecker(); 
+  } 
+}
+Here in this code, we have created a dependency between the TextEditor and the SpellChecker.
+
+Incase of Inversion co Control scenario, we would do like..
+public class TextEditor { 
+  private SpellChecker spellChecker; 
+  public TextEditor(SpellChecker spellChecker) { 
+    this.spellChecker = spellChecker;
+  } 
+}
