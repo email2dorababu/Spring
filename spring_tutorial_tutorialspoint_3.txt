@@ -29,3 +29,39 @@ public class TextEditor {
     this.spellChecker = spellChecker;
   } 
 }
+
+Here TextEditor should not worry about spellChecker implementation. The SpellChecker will be implmented independently and 
+and provided to TextEditor at the time of TextEditor instantiation and this entire procedure is controlled by the 
+Spring Framework.
+
+Here we have removed the total control from TextEditor and kept it in elsewhere(i.e XML configuration file) and the 
+dependency(i.e the class SpellChecker) is being injected into the class TextEditor through a "class Constructor".
+Thus flow of control has been "inverted" by Dependency Injection(DI), because you have effectively deligated dependancies
+to some external system.
+
+The first method is Constructor based dependency injection.
+Constructor-based dependency injection:
+---------------------------------------
+Constructor-based DI is accomplished when the container invokes a class constructor with a number of arguments, 
+each representing a dependency on other class.
+
+Second Method is injecting dependencies through "Setter methods" of TextEditor class.
+Here we will create spellChecker instance and this instance is used to call setter methods to initialize 
+TextEditors properties. 
+Setter-based dependency injection:
+----------------------------------
+Setter-based DI is accomplished by the container calling setter methods on your beans 
+after invoking a "no-argument constructor"  or "no-argument static factory method" to instantiate your bean.
+
+NOTE: you can mix both constructor and setter based DI. But a good rule of thumb is to use
+Constructor arguments for MANDATORY dependencies and,
+Setters for optional dependencies.
+
+Benefits of DI: page 42:
+-----------------------
+Code is cleaner with 
+
+
+
+
+
