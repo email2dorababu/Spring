@@ -67,9 +67,27 @@ Date 18thDec2014
 ---------------
 Bean Definition Template
 --------------------
+You can create a Bean Definition template, which can be used by other child bean definitions without putting much effort.
+How you dow it?
+While defining a bean definition template in ApplicationContext xml,
+ 1. you should not specify "CLASS" attribute and 
+ 2. you shoud specify "ABSTRACT" attribute with a value of TRUE.
 
+<bean id="beanTeamplate" abstract="true"> 
+ <property name="message1" value="Hello World!"/> 
+  <property name="message2" value="Hello Second World!"/> 
+  <property name="message3" value="Namaste India!"/> 
+ </bean>
 
+<bean id="helloIndia" class="com.tutorialspoint.HelloIndia" parent="beanTeamplate"> 
+<property name="message1" value="Hello India!"/> 
+<property name="message3" value="Namaste India!"/> 
+</bean>
 
+Note: Parent bean cannot be instantiated on its own because it is incomplete.
+and it is also explicitly mentioned as ABSTRACT.
+When a definition is abstract, it can be used only as a pure template bean definition that serves as a parent defnintion
+for child definition.
 
 
 
