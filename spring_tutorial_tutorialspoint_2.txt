@@ -42,6 +42,7 @@ CHAPTER 10
 Spring Bean Definition Inheritance :
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Date 16thDec2014
+Page 37
 Here we will discuss Inheritance in Beans.
 
 A bean definition contain a lot of configuration.
@@ -59,9 +60,13 @@ Here Spring Bean definition inheritane has nothing to do with Java class inherit
 You can define a parent bean definition as a template and other child beans can inherit reqired configuration from the prent
 bean.
 
+Date 18thDec2014
 
+<bean id="helloIndia" class="com.tutorialspoint.HelloIndia" parent="helloWorld">
 
-
+---------------
+Bean Definition Template
+--------------------
 
 
 
