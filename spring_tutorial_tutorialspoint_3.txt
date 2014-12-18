@@ -59,8 +59,14 @@ Setters for optional dependencies.
 
 Benefits of DI: page 42:
 -----------------------
-Code is cleaner with 
+Code is cleaner with the DI principle.
+decoupling is more effective when objects are provided with their dependencies.
+The object does not lookup its dependencies, and 
+does not know the location or class of the dependencies.
+Everything (this lookup etc) is taken care by the Spring Framework.
 
+Constructor-based Dependency Injection:
+---------------------------------------
 
 
 
