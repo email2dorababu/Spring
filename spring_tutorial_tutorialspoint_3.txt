@@ -67,6 +67,95 @@ Everything (this lookup etc) is taken care by the Spring Framework.
 
 Constructor-based Dependency Injection:
 ---------------------------------------
+date 19Dec2014
+Constructor-based DI is accomplished when 
+    the container invokes a "class constructor with a no of arguments", each argument representing a dependency on 
+    other class.
+Example: pg 43
+1. Text editor have a constructor, with SpellChecker as an argument.
+public TextEditor(SpellChecker spellChecker) { 
+    System.out.println("Inside TextEditor constructor." ); 
+    this.spellChecker = spellChecker; 
+}
+
+In Main class:
+TextEditor te = (TextEditor) context.getBean("textEditor");
+
+In the Beans.xml configuration file:
+<!-- Definition for textEditor bean --> 
+    <bean id="textEditor" class="com.tutorialspoint.TextEditor"> 
+        <constructor-arg ref="spellChecker"/> 
+    </bean> 
+<!-- Definition for spellChecker bean --> 
+    <bean id="spellChecker" class="com.tutorialspoint.SpellChecker"> 
+    </bean>
+
+I.E the constructor based DI is implemented using  <constructor-arg ref="spellChecker"/>  tag.
+
+Note: The above is the case where there is only one argument is present in the constructor.
+How does the constructor arguments are resolved when there is morethan one argument in the constructor?
+
+Constructor arguments resolution:
+---------------------------------
+There will be ambiguity while passing arguments to constroctor , when there are more than one parameter.
+
+We can resolve the ambiguity in the following ways.
+1 method. Supply the arguements to constructor in the same order , in which construcotr-arg are defnined in bean definition.
+public Foo(Bar bar,Baz bax){
+//...
+}
+
+Bean configuration file :
+<beans>
+    <bean id="foo" class="x.y.Foo"> 
+        <constructor-arg ref="bar"/> 
+        <constructor-arg ref="baz"/>
+    </bean> 
+    <bean id="bar" class="x.y.Bar"/> 
+    <bean id="baz" class="x.y.Baz"/> 
+</beans>
+
+2 method. When we pass different types to constructor, like public Foo(int year, String name),
+the container can also uses type matching with "SIMPLE TYPES" ,"if you explicitly specify the type" of the constructor args
+using the "TYPE" attribute. Ex:
+<bean id="exampleBean" class="examples.ExampleBean"> 
+    <constructor-arg type="int" value="2001"/> 
+    <constructor-arg type="java.lang.String" value="Zara"/> 
+</bean>
+
+3 method. THe best way is to pass the constructor arguments, use the "INDEX" attribute to specify explicitly the index of
+constructor arguments. Here the index is "0" based.
+<bean id="exampleBean" class="examples.ExampleBean"> 
+    <constructor-arg index="0" value="2001"/> 
+    <constructor-arg index="1" value="Zara"/> 
+</bean>
+
+----------------------
+Final Note
+---------------------
+Incase you are passing a reference to an object, you need to use "REF" attribute of <construcotr-arg> tag.
+If you are passing a value directly then you should use "VALUE" attribute.
+
+ <bean id="foo" class="x.y.Foo"> 
+        <constructor-arg ref="bar"/> 
+        <constructor-arg ref="baz"/>
+    </bean> 
+    <bean id="bar" class="x.y.Bar"/> 
+<bean id="baz" class="x.y.Baz"/>
+--
+<bean id="exampleBean" class="examples.ExampleBean"> 
+    <constructor-arg type="int" value="2001"/> 
+    <constructor-arg type="java.lang.String" value="Zara"/> 
+</bean>
+-------------------------------
+Page 45:
+----------------------------------
+Setter-based Dependency Injection:
+---------------------------------
+
+
+
+
 
 
 
