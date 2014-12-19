@@ -167,6 +167,27 @@ public class TextEditor {
         return spellChecker; 
     }
 
+SpellChecker is the dependent class. this will have a no args constructor,  
+public SpellChecker(){ 
+    System.out.println("Inside SpellChecker constructor." ); 
+}
+
+MainApp is the class where you inject the dependency.
+
+<!-- Definition for textEditor bean --> 
+<bean id="textEditor" class="com.tutorialspoint.TextEditor"> 
+    <property name="spellChecker" ref="spellChecker"/> 
+</bean> 
+<!-- Definition for spellChecker bean --> 
+<bean id="spellChecker" class="com.tutorialspoint.SpellChecker"> 
+</bean>
+
+
+
+
+
+
+
 
 
 
