@@ -152,8 +152,20 @@ Page 45:
 ----------------------------------
 Setter-based Dependency Injection:
 ---------------------------------
-
-
+Setter based DI is accomplished by,  the container calling setter methods on your beans after invoking a no-argument 
+constructor or no-argument static factory method to instantiate your bean.
+Ex:
+public class TextEditor { 
+    private SpellChecker spellChecker; 
+    // a setter method to inject the dependency. 
+    public void setSpellChecker(SpellChecker spellChecker) { 
+        System.out.println("Inside setSpellChecker." ); 
+        this.spellChecker = spellChecker; 
+    } 
+    // a getter method to return spellChecker 
+    public SpellChecker getSpellChecker() { 
+        return spellChecker; 
+    }
 
 
 
