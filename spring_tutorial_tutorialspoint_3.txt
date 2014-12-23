@@ -182,13 +182,40 @@ MainApp is the class where you inject the dependency.
 <bean id="spellChecker" class="com.tutorialspoint.SpellChecker"> 
 </bean>
 
+--------------
+Date 23Dec2014
+You should note the difference in Beans.xml file defined in constructor-based injection and setter-based injection. 
+The only difference is inside the <bean> element where we have used 
+    <constructor-arg> tags for constructor-based injection
+    and <property> tags for setter-based injection.
+-------------
+Second important point to note is that in case you are passing a reference to an object, 
+you need to use ref attribute of <property> tag and 
+if you are passing a value directly then you should use value attribute.
+------------
 
+##############################
+XML Configuration using p-namespace :
+If you have many setter methods then it is convenient to use p-namespace in the XML configuration file.
 
+Ex: <bean id="john-classic" class="com.example.Person"> 
+        <property name="name" value="John Doe"/> 
+        <property name="spouse" ref="jane"/> 
+    </bean> 
+    <bean name="jane" class="com.example.Person"> 
+        <property name="name" value="John Doe"/> 
+    </bean>
+Above XML configuration can be re-written in a cleaner way using p-namespace as follows:
+    <bean id="john-classic" class="com.example.Person" 
+        p:name="John Doe" 
+        p:spouse-ref="jane"/> 
+    </bean> 
+    <bean name="jane" class="com.example.Person" 
+        p:name="John Doe"/> 
+    </bean>
 
-
-
-
-
+Here you should note the difference in specifying primitive values and object references with p-namespace.
+The -ref part indicates that this is not a straight value but rather a reference to another bean.
 
 
 
