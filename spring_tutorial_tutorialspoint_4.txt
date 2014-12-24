@@ -2,3 +2,98 @@
 Chapter 12
 Spring Injecting Inner Beans
 #################################
+pg 56:
+Java inner classes are defined within the scope of other classes.
+Similarly  inner beans are beans that are defined within the scope of another bean.
+
+Thus, a <bean/> element inside the <property/> or <constructor-arg/> element is called inner bean.
+The below is setter-based injection but using inner beans:
+<bean id="outerBean" class="..."> 
+  <property name="target"> 
+  -- setter-based injection but using inner beans:
+    <bean id="innerBean" class="..."/> 
+  </property> 
+</bean>
+
+#################################
+Chapter 13
+Spring Injecting Collection
+#################################
+pg 59:
+
+You can configure primitive data type using VALUE attribute and object references using REF attribute of the <property> tag
+in your Bean configuration file. Here in both the cases you deal with passing singular value to a bean.
+
+Now what about if you want to pass plural values like Java Collection types List,SET,MAP and Properties.
+
+To handle the situation Spring offers you FOUR types of collection configuration elements :
+<LIST> - this helps in wiring i.e injecting a list of values, allowing duplicates.
+<SET> -   this helps in wiring i.e injecting a set of values, but without any duplicates.
+<MAP> - this can be used to inject a collection of name-value pairs where name and value can be of any type.
+<PROPS> - used to inject a collection of name-value pairs where the name and value are both strings.
+
+You can use either <list> or <Set> to wire ANY implementation of java.util.Collection or an ARRAY.
+
+You will come across two situations
+a) Passing direct values of the collecton and 
+b) Passing a reference of a bean as one of the collection elements.
+
+
+<list> 
+<value>INDIA</value> 
+<value>USA</value>
+</list>
+<set> 
+  <value>INDIA</value> 
+  <value>USA</value> 
+  <value>USA</value> 
+</set>
+<map>
+  <entry key="1" value="NDIA"/> 
+  <entry key="2" value="Pakistan"/> 
+  <entry key="3" value="USA"/> 
+  <entry key="4" value="USA"/> 
+</map>
+<props> 
+  <prop key="one">INDIA</prop> 
+  <prop key="two">Pakistan</prop> 
+  <prop key="three">USA</prop> 
+  <prop key="four">USA</prop> 
+</props>
+
+-----------------------
+The above is injecting direct values of the collection, and now let us see injecting Bean REFERENCES:
+Here you can mix references and values all together.
+
+<list> 
+  <ref bean="address1"/> 
+  <ref bean="address2"/> 
+  <value>Pakistan</value>
+</list> 
+<map> 
+  <entry key="one" value="NDIA"/> 
+  <entry key ="two" value-ref="address1"/> 
+  <entry key ="three" value-ref="address2"/> 
+</map>
+
+To use above bean definition, you need to define your setter methods in such a way that they should be able to handle 
+referenes as well.
+--------------
+Injecting NULL and empty string values:
+Empty string is passed by
+<bean id="..." class="exampleBean"> 
+  <property name="email" value=""/> 
+</bean>
+
+The above example is equal to exampleBean.setEmail("").
+To pass NULL values , pass it as follows.
+<bean id="..." class="exampleBean"> 
+  <property name="email"><null/>  </property> 
+</bean>
+it is equivalanet to java code, exampleBean.setEmail(null);
+
+
+
+
+
+
