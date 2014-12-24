@@ -127,8 +127,51 @@ Note: you can use byType or constructor autowire mode to wire arrays and other t
 --------------
 limitations with autowiring:
 
+Auto wiringworks best when it is used consistently across a project. 
+If autowiring is not used in general, it might be confusing to developers to use it to wire one or two bean definitions.
+Eventhough Autowiring can significantly reduce the need to specify properties or constructor arguments, you should consider 
+the limitations and disadvantages of autowiring before using them.
+Limitation - description
+Overriding possibility - you can still specify dependencies using <construtor-arg> and <property> settings which will always
+    override autowiring.
+Primitive data types  - you cannot autowire so-called simple properties such as primitives,Strings and Classes.
+Confusing nature -  Autowiring is less exact than explicit wiring, so if possible prefer using explicit wiring.
 
+------------------
+pg 65:
+Autowiring by Name:
 
+This mode specifies autowiring by property name.
+Spring container looks at the beans on which auto-wiring attribute is set to byName in the XML configuration file.
+It tries to match and wire its properties with the beans defined by the same names in the configuration file. 
+If matches are found, it will inject those beans otherwise, it will throw exceptions.
+
+Ex: if a bean definition is set to autowire byName in config file, and it contains a spellChecker property,
+i.e it has a setSpellChecker() method, Spring looks for a bean definition named spellChecker,and uses it to set the property.
+Still you can wire remaining properties using <property> tag.
+
+Autowiring by Type:
+
+This mode specifies autowiring by property Type.
+Spring container looks at the beans on which auto-wiring attribute is set to byType in the XML configuration file.
+It tries to match and wire its properties with the beans defined by the same type in the configuration file. 
+if its type matches with exactly one of the beans name in config file
+If matches are found, it will inject those beans otherwise, it will throw exceptions.
+
+Ex: if a bean definition is set to autowire byType in config file, and it contains a spellChecker property of 
+SpellChecker type, Spring looks for a bean definition named SpellChecker, and uses it to set the property.
+Still you can wire remaining properties using <property> tag.
+
+pg70: 
+Spring Autowiring by Constructor:
+This mode is very similar to byType, but it applies to constructor arguments.
+Spring Container looks at the beans on which autowire attribute is set to constructor in the XML config file.
+it then tries to match and wire its constructor argument with exactly one of the beans name in configuration file.
+if matches are found , it will inject those beans othersise it will through exception.
+
+EX: if a bean definition is set to autowire by constructor in configuration file, and it has a constructor with one of the 
+arguments of SpellChecker type, Spring looks for a bean definition named SpellChecker, and uses it to set the constructor's
+arguement. Still you can wire remaining arguments using <constructor-arg> tag.
 
 
 
