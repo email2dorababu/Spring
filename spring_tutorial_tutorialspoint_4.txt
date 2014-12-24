@@ -3,6 +3,7 @@ Chapter 12
 Spring Injecting Inner Beans
 #################################
 pg 56:
+date: 24Dec2014
 Java inner classes are defined within the scope of other classes.
 Similarly  inner beans are beans that are defined within the scope of another bean.
 
@@ -91,6 +92,57 @@ To pass NULL values , pass it as follows.
   <property name="email"><null/>  </property> 
 </bean>
 it is equivalanet to java code, exampleBean.setEmail(null);
+
+#################################
+Chapter 14
+Spring Beans Auto-Wiring
+#################################
+pg 64:
+
+you have learnt how to declare a bean using <bean> element and inject <bean> with using <constructor-arg> and 
+<property> element in XML configuration file.
+
+Spring container can AUTOWIRE relationships between collaborating beans without using <constructor-arg> and 
+<property> elements,
+(what is the use of Auto wiring )
+(NOTE) which helps cut down on the amount of XML configuration you write for a big Spring based application.
+--------------------
+Autowirng Modes:
+The autowiring modes can be used to instruct Spring container to use autowiring for dependency injection.
+you use the AUTOWIRE attribute of the <bean/> element to specify qutowire mode for a bean definition.
+
+Mode - description
+NO - default setting , means no autowiring and you should use explicit bean reference for wiring.(learned in prev chapters).
+byName - Autowire by property name. Spring container looks at the properties of the beans on which AUTOWIRE attribute is 
+          set to byName in the XML config file. it then tries to match and wire its properties with the beans definition by
+          the same names in the configuration file.
+byType - Autowire by property data type. Spring container looks at the properties of the beans on which autowire attribute is
+         set to byType in the XML config file. It then tries to match and wire a property if its TYPE matches with exactly
+         one of the beans name in configuration file. If more than one such bean exists, a fatal exception is thrown.
+constructor - Similar to byType, but Type applies to constructor arguements. if there is not exactly one bean of the 
+              constructor arguement type in the container, a fatal error is raised.
+Autodetect -  Spring first tries to wire using autowire by constructor, if it does not work, Spring tries to autowire byType
+
+Note: you can use byType or constructor autowire mode to wire arrays and other typed-collections.
+--------------
+limitations with autowiring:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
