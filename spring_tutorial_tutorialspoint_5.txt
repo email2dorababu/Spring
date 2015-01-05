@@ -4,3 +4,19 @@ Spring Annotation Based Configuration:
 ###########################
 Page 73
 Date 2Jan2015
+Starting from Spring 2.5 it became possible to configure the DI using Annotations.
+So instead of using XML to describe a bean wiring, you can move the bean configuration into the "component" class itself,
+using annotations on the relecant class, method, or field declaration.
+
+NOTE: Annotation injection is performed before XML injection, thus the latter configuration will override the former for
+properties wired through both approaches.
+
+Annotation wiring is not turned on in spring container by default.
+So we need to enable it in our spring configuration file for annotation based wiring.
+
+use the below line as the first line inside the <beans> tag.
+ 
+ <beans xmlns=.....      ...>
+   <context:annotation-config/>
+  </beans>
+  
