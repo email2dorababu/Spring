@@ -20,3 +20,40 @@ use the below line as the first line inside the <beans> tag.
    <context:annotation-config/>
   </beans>
   
+once <context:annotation-config> is configured, you can start annotating your code, spring automatically wire values into
+properties, methods, and constructors.
+
+Few IMP annotations:
+---------------------------
+1. @Required : the @Required annotations applied to bean property setter methods.
+2. @Autowired : this annotation can be applied to bean property setter methods, non-setter methods, constructor and 
+properties.
+3. @Qualifier :annotation along with @Autowired can be used to remove the confusion by specifying which exact bean will be 
+wired
+4. @JSR-250Annotations: spring supports JSR-250 based annotations which include @Resource, @PostConstruct and @PreDestroy.
+
+@REQUIRED ANNOTATION:
+------------------------
+ this applies to bean property setter method and it indicates that the affected bean property must be populated in XML
+ configuration file at configuration time , otherwise the container throws a BeanInitialization exception.
+
+@AUTOWIRED ANNOATION:
+------------------------
+This annotation provides more fine-grained control over where and how autowiring should be accomplished. 
+The @Autowired annotation can be used to autowire bean on the setter method is just like @Required annotation, Constructor,
+a property or methods with arbitrary names and/or multiple arguments.
+ 
+ @Autowired on Setter Methods: you can use @Autowired annotation on setter methods to get rid of the <property> element in XML configuration file.
+  When Spring finds this annotation used with setter methods, it tries to perform byType autowiring on the method.
+  
+@Autowired on Properties: you can use @Autowired annotation on properties to get rid of the setter methods.
+when you will pass values of autowired properties using <property> ,Spring will automatically assign those properties with 
+the passed values or references. 
+
+@Autowired on COnstructors: you can apply @Autowired to constructors as well. A Constructor @Autowired annotation indicates 
+that the constructor should be autowired when creating the bean, even if no <constructor-arg> elements are used while configuring the bean in XML file.
+
+@Autowired with (required=false) option:: 
+----------------------------------------
+
+
