@@ -55,5 +55,32 @@ that the constructor should be autowired when creating the bean, even if no <con
 
 @Autowired with (required=false) option:: 
 ----------------------------------------
-
+Date 6Jan2014
+pg 80
+ By default @Autowired annotated implies the dependency is required , similar to @Required annotation.
+ However, you can turn off the default behavior by using (required-false) option with @Autowired.
+ 
+ e.g.Even if u don't pass any value for age property the program works 
+ @Autowired(required=false) 
+ public void setAge(Integer age) { 
+  this.age = age; 
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
