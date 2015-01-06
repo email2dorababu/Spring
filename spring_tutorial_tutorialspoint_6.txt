@@ -105,10 +105,48 @@ public class AppConfig{
     return new Foo();
     }
   }
+-------------------------------------
 
+#################################
+Chapter 17
+Event Handling in Spring
+#################################
+pg:94
+date 6Jan2014
 
+COre of Spring is the ApplicationContext, which manages complete lifecycle of the beans.
+Application context publishes certain types of events when loading the beans.
+e.g ContextStartedEvent is published when the context is started and ContextStoppedEvent is published when the context is
+stopped.
 
+Event handling in the ApplicationContext is provided through the ApplicationEvent class and ApplicationListener interface.
+So if a bean implements the ApplicationListener, then every time an ApplicationEvent get published to the ApplicationContext,
+that bean is notified.
 
+Spring provides the following standard events:
+1. ContextRefreshedEvent: this event published when the ApplicationContext is either initialized or refreshed.
+  This can also be raised using the refresh() method on the ConfigurableApplicationContext interface.
+2. ContextStartedEvent: this event is published when the ApplicationContext is started using start() method on the 
+  ConfigurableApplicationContext interface. You can poll your database or you can restart/start any stopped application 
+  after receiving this event.
+3. ContextStoppedEvent : this event is published when the ApplicationContext is stopped using the Stop() method on the 
+  ConfigurableApplicationContext interface. you can do required housekeep work after receiving this event.
+4. ContextClosedEvent: This event is published when the ApplicationContext is closed using the close() method on the 
+  ConfigurableApplicationContext interface. A closed context reaches its end of life; it cannot be refreshed or restarted.
+5. RequestHandledEvent: this is a web-specific event telling all beans that an HTTp request has been serviced.
+
+-----------
+Spring's event handling is single-threaded. so if an event is published, until and unless all the receivers get the message,
+the processes are blocked and the flow will not continew. Hence care should be taken when desiging your application if event
+handling is to be used.
+------------
+
+Listening to context events:
+----------------------
+pg 95
+To listen a context event, a bean should implement the ApplicationListener interface which has just one method 
+"onApplicationEvent()". 
+Below is the example shows how the events propagates and how you can put your code to do required task based on events.
 
 
 
