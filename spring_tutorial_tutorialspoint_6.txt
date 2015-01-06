@@ -150,6 +150,51 @@ Below is the example shows how the events propagates and how you can put your co
 
 
 
+----------------------------------------------------
+###########################
+Chapter 18
+Custom Events in Spring
+##########################
+Page 98 , date 6Jan2014
+
+There are no of steps to be taken to write and publish your own custom events.
+
+1.Create an event class, CustomEvent123 extending ApplicationEvent. This class must define a default constructor which should
+inherit constructor from ApplicationEvent class.
+
+2.Once your event class is defined, you can publish it from any class. e.g EventClassPublisher123 implements 
+ApplicationEventPublishAware. you will also need to this class in XML configuration file as a bean so that the container can
+identify the bean as an event publisher because it implements the ApplicationEventPublishAware interface.
+
+3.A published event can be handled in a class, let us say EventClassHandler which implements ApplicationListener inteface and
+implements on ApplicationEvent method for the custom event.
+
+4.Create beans configuration file Beans.xml.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
