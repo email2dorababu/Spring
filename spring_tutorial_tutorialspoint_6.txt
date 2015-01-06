@@ -48,12 +48,37 @@ When @Beans have dependencies on one another, expressing that dependency is as s
 one bean method calling another 
 
 @Configuration 
-public class AppConfig { @Bean public Foo foo() { return new Foo(bar()); } @Bean public Bar bar() { return new Bar();
+public class AppConfig { 
+@Bean 
+  public Foo foo() { 
+    return new Foo(bar());  // here we are doing a constructor injection.
+  } 
+  @Bean 
+  public Bar bar() { 
+  return new Bar(); 
+} }
 
+Here, the foo bean receives a reference to bar via constructor injection.
 
+The @Import Annotation:
+------------------------
+this allows for loading @Bean definitions from another configuration class.
+Consider a class ConfigA.
+@Configuration 
+  public class ConfigA { 
+  @Bean
+  public A a() { 
+    return new A(); 
+    } 
+  }
 
-
-
-
+You can import above bean declaration in another Bean Declaration as follows:
+@Configuration 
+@Import(ConfigA.class) 
+public class ConfigB { 
+  @Bean public B a() { 
+    return new A(); 
+    } 
+  }
 
 
