@@ -38,20 +38,110 @@ Target Object: The Object being advised by one or more aspects, this object will
 Weaving : Weaving is the process of linking aspects with other application types or objects to create an advised object. This
           can be done at compile time, load time or at runtime.
 
+Types of Advice:
+-------------------
+Spring aspects can work with five kinds of advice mentioned below: 
+Advice- Description 
+before: Run advice before the a method execution. 
+after :Run advice after the a method execution regardless of its outcome. 
+after-returning :Run advice after the a method execution only if method completes successfully. 
+after-throwing :Run advice after the a method execution only if method exits by throwing an exception. 
+around : Run advice before and after the advised method is invoked.
 
 
+Custom Aspects Implementation:
+------------------------------
+Spring supports the @AspectJ annotation style approach and the schema-based approach to implement custom aspects. 
+These two approaches have been explained in detail in the following two sub chapters 
+Approach- Description:
+XML Schema based:  Aspects are implemented using regular classes along with XML based configuration. 
+@AspectJ based : @AspectJ refers to a style of declaring aspects as regular Java classes annotated with Java 5 annotations.
+
+XML Schema Based AOP with Spring:
+-------------------------------
+To use the aop namespace tags described in this section, you need to import the spring-aop schema as described below: 
+
+<?xml version="1.0" encoding="UTF-8"?> 
+        <beans xmlns="http://www.springframework.org/schema/beans" 
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                xmlns:aop="http://www.springframework.org/schema/aop" 
+                xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+                http://www.springframework.org/schema/aop 
+                http://www.springframework.org/schema/aop/spring-aop-3.0.xsd "> 
+        <!-- bean definition & AOP specific configuration --> 
+        </beans>
+
+You will also need following Aspect J libraries on the CLASSPATH of your application.
+These are available in lib directory of an AspectJ installation. else you can download from internet.
+1. Aspectjrt.jar
+2. Aspectjweaver.jar
+3. aspectj.jar
+
+Declaring an aspect:
+------------------------
+An aspect is declared using the <aop:aspect> element, and the backing bean is referenced using the ref attribute:
+<aop:config>
+        <aop:aspect id="myAspect" ref="aBean">
+        ...
+        </aop:aspect>
+</aop:config>
+
+<bean id="aBean" class="...">
+...
+</bean>
+
+Heare aBean will be configured and dependency injected just like any other Spring bean.
+
+Declaring a pointcut:
+--------------------
+ A point cut helps in determing the join point(i.e methods) of interest to be executed with different advices.
+ While working with XML schema based configuration, pointcut will be defined as follows:
+<aop:aspect id="myAspect" ref="aBean"> 
+        <aop:pointcut id="businessService" 
+                expression="execution(* com.xyz.myapp.service.*.*(..))"/>
+        ... 
+</aop:aspect>
+
+The following example defines a pointcut named 'businessService' that will match the execution of getName() method available in Student class under the package com.tutorialspoint:
+
+<aop:aspect id="myAspect" ref="aBean"> 
+        <aop:pointcut id="businessService" 
+                expression="execution(* com.tutorialspoint.Student.getName(..))"/>
+        ... 
+        </aop:aspect>
+
+Declaring Advices:
+------------------------
+you can declare any of the five advices inside an <aop:aspect> using the <aop:{ADVICE NAME}> element .
 
 
+<aop:config> 
+        <aop:aspect id="myAspect" ref="aBean"> 
+                <aop:pointcut id="businessService" expression="execution(* com.xyz.myapp.service.*.*(..))"/> 
+                <!-- a before advice definition --> 
+                <aop:before pointcut-ref="businessService" method="doRequiredTask"/> 
+                <!-- an after advice definition --> 
+                <aop:after pointcut-ref="businessService" method="doRequiredTask"/>
+                ....
+                
+        </aop:aspect> 
+</aop:config>                
 
+You can use same doRequiredTask or different methods for different advices. These methods will be defined as a part of 
+aspect module
 
+@AspectJ Based AOP with Spring:
+------------------------------
+@AspectJ refers to a style of declaring aspects as regular java classes annotated with Java 5 annotations.
+The @AspectJ support is enabled by including the following element inside your XML schema-based configuration file.
 
+<aop:aspectj-autoproxy/>
 
-
-
-
-
-
-
+You need to have the blwo aspectJ libraries on your classpath of your application.
+1. Aspectjrt.jar
+2. Aspectjweaver.jar
+3. aspectj.jar
 
 
 
