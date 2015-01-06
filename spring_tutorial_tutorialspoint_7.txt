@@ -103,7 +103,8 @@ Declaring a pointcut:
         ... 
 </aop:aspect>
 
-The following example defines a pointcut named 'businessService' that will match the execution of getName() method available in Student class under the package com.tutorialspoint:
+The following example defines a pointcut named 'businessService' that will match the execution of getName() method available 
+in Student class under the package com.tutorialspoint:
 
 <aop:aspect id="myAspect" ref="aBean"> 
         <aop:pointcut id="businessService" 
@@ -130,7 +131,7 @@ you can declare any of the five advices inside an <aop:aspect> using the <aop:{A
 
 You can use same doRequiredTask or different methods for different advices. These methods will be defined as a part of 
 aspect module
-
+------------------------------------------------
 @AspectJ Based AOP with Spring:
 ------------------------------
 @AspectJ refers to a style of declaring aspects as regular java classes annotated with Java 5 annotations.
@@ -143,22 +144,76 @@ You need to have the blwo aspectJ libraries on your classpath of your applicatio
 2. Aspectjweaver.jar
 3. aspectj.jar
 
+Declaring an Aspect:
+-------------------
+Aspect classes are like any other normal bean and may have methods and fields just like any other class, except that
+they will be annotated with @Aspect as follows:
+
+package org.xyz; 
+import org.aspectj.lang.annotation.Aspect; 
+
+@Aspect 
+public class AspectModule { }
+
+They will be configured in XML like any other bean as follows:
+
+<bean id="myAspect" class="org.xyz.AspectModule"> 
+        <!-- configure properties of aspect here as normal --> 
+</bean>
+
+Declaring a pointcut:
+------------------------
+A pointcut helps in determining the join i.e methods of interest to be executed with different advices. While working
+with @AspectJ based configuration, pointcut declaration has two parts:
+        1. A pointcut expression that determines exactly which method executions we are interested in
+        2. A pointcut signature comprising a name and any number of parameters. The actual body of the method is 
+                irrelevant and infact should be empty.
+The following example defines a pointcut named 'businessService' that will match the execution of every method 
+available in the classes under the package com.xyz.myapp.service:
 
 
+import org.aspectj.lang.annotation.Pointcut; 
+
+@Pointcut("execution(* com.xyz.myapp.service.*.*(..))") // expression 
+
+private void businessService() {} // signature 
 
 
+The following example defines a pointcut named 'getname' that will match the execution of getName() method available 
+in Student class under the package com.tutorialspoint: 
+
+import org.aspectj.lang.annotation.Pointcut;
+@Pointcut("execution(* com.tutorialspoint.Student.getName(..))") 
+private void getname() {}
+
+Declaring advices :
+--------------------
+You can declare any of the five advices using @{ADVICE-NAME} annotations as given below.
+This assumes that you already have defined a pointcut signature method businessService():
 
 
+@AfterReturning(pointcut = "businessService()", returning="retVal") 
+public void doAfterReturnningTask(Object retVal){ 
+        // you can intercept retVal here. 
+        ... 
+} 
 
+@AfterThrowing(pointcut = "businessService()", throwing="ex") 
+public void doAfterThrowingTask(Exception ex){
+        // you can intercept thrown exception here.
+        ... 
+        } 
 
+@Around("businessService()") 
+public void doAroundTask(){ 
+        ... 
+}
+You can define you pointcut inline for any of the advices. Below is an example to define inline pointcut for before advice: 
 
-
-
-
-
-
-
-
+@Before("execution(* com.xyz.myapp.service.*.*(..))") 
+public doBeforeTask(){ 
+        ...
+}
 
 
 
