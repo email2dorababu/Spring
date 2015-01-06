@@ -1,1 +1,58 @@
-abc
+###########################
+Chapter 16
+Spring Java Based Configuration:
+###########################
+pg 87 , Date 6Jan2015
+
+Sofar we have seen how we configure Spring beans Using XML configuration file.
+If you are confortable with XML configuration then it is really not required to learn how to proceed with java based 
+configuration because you are going to achive the same result using either of the configuration available.
+
+Java based configuration option enables you to write most of your Spring without XML but with the help of 
+java-based annotations explained below.
+
+@COnfiguration & @Bean Annotations :
+------------------------------------
+Annotating a class with the @COnfiguration indicates that the class can be used by the Spring IoC container as a source
+of bean definitions.
+
+THe @Bean Annotation tells Spring that a method annotated with @Bean will return an object that should be registred as a 
+bean in the Spring application context.
+E.G :
+
+@Configuration 
+public class HelloWorldConfig { 
+  @Bean 
+  public HelloWorld helloWorld(){
+    return new HelloWorld(); 
+  } 
+}
+
+THe above code will be equivalent to the following XML configuration:
+
+<beans> 
+  <bean id="helloWorld" class="com.tutorialspoint.HelloWorld" /> 
+</beans>
+
+Here method name annotated with @Bean works as bean ID and it creates and returns actual bean. 
+your configuration calss can have declarations for more than one @Bean. 
+Once you configuration classes are defined, you can load & provide them to spring container using 
+AnnotatonCOnfigurationApplicationContext.
+
+ApplicationContext ctx =new AnnotationConfigApplicationContext(HelloWorldConfig.class);
+HelloWorld helloWorld = ctx.getBean(HelloWorld.class);
+
+Injecting Bean Dependencies:
+------------------------------
+When @Beans have dependencies on one another, expressing that dependency is as simple as having 
+one bean method calling another 
+
+
+
+
+
+
+
+
+
+
