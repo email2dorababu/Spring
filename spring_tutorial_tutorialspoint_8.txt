@@ -119,9 +119,23 @@ Deletng a row from the table:
   String SQL = "delete Student where id = ?"; 
   jdbcTemplateObject.update( SQL, new Object[]{20} );
 
+Executing DDL Statements:
+------------------------
+You can use the execute(..) method from jdbcTemplate to execute any SQL statements or DDL statements. 
+Following is an example to use CREATE statement to create a table: 
 
+String SQL = "CREATE TABLE Student( " + 
+    "ID INT NOT NULL AUTO_INCREMENT, " + 
+    "NAME VARCHAR(20) NOT NULL, " + 
+    "AGE INT NOT NULL, " + 
+    "PRIMARY KEY (ID));"
+  jdbcTemplateObject.execute( SQL );
 
+Example :
 
+SQL Stored Procedure in Spring
+--------------------------------
+Pg 123:
 
 
 
