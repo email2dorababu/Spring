@@ -21,8 +21,17 @@ Here we learn the most popular approach which makes use of JDBC Template class o
 
 This is the central framework class that manages all the database communication and exception handling.
 
+JDBCTemplate Class:
+-------------------------
+The JDBCTemplate class executes 
+SQL queries, 
+update statements and 
+stored procedure calls,
+Performs iteration over resultsets and 
+extraction of returned parameter values.
 
-
+It also caches JDBC exceptions and translates them to the generic, more informative, exception hierarchy defined in the 
+org.springframework.dao package.
 
 
 
