@@ -136,6 +136,34 @@ Example :
 SQL Stored Procedure in Spring
 --------------------------------
 Pg 123:
+Date : 7/jan/2015
+The SimpleJdbcCall class can be used to call a stored procedure with IN and OUT parameters.
+You can use this approch while working with either of the RDBMS like Apache Derby,DB2,Mysql, MSsql ,ORACLE and Sybase.
+Let us have student table and stored procedure "getRecord" in TEST db with In_id as IN and out_name,out_age as OUT 
+paramerters. The Procedure have select name,age into out_name,out_age from Student where id=in_id;
+
+PG 124 have the e.g program:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
