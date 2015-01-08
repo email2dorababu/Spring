@@ -24,12 +24,62 @@ The Trasaction is viewd in a simple manner as :
 Spring's transaction support aims to provide an alternative to EJB transactions by adding transaction capabilities to POJOS.
 
 Spring supports both Programmatic and declarative transaction management.
-EJB Requires an application server, but Spring transaction management can be implemented 
+EJB Requires an application server, but Spring transaction management can be implemented without need of application server.
 
+Local vs Global Transactions:
+----------------------------
+Local Transactions are specific to a single transactional resource like a JDBC connection.
+where as Global transactions can span multiple transactional resources like transaction in a distributed system.
 
+Local Transaction management can be useful in a centralized computing environment where application components and resources
+are located at a single site, and transaction mgmt only involves a local data manager running on a single machine.
+Local transactions are easier to be implemented.
 
+Global transaction mgmt is required in a distributed computing environment where all the resources are distributed across
+multiple systems. In such case, trasaction mgmt needs to be done both at local and global levels.
+A distributed or global transaction is executed across multiple systes, and its execution requires coordination between the 
+global transaction mgmt system and all the local data managers of the involved systems.
 
+Programmatic vs Declarative:
+-----------------------------
+Spring supports above two types of transaction management.
 
+1.Programmatic transaction management: means that you have managed the transaction with the help of programming. this gives
+you extreme flexibility, but it is difficult to maintain.
+2. Declarative transaction management: Means you separate transaction management from the business code. You only use 
+annotations or XML based configuration to manage transactions.
+
+Declarative transaction mgmt is preferable over programmatic transaction management. Eventhough Decalrative tx mgmt is less 
+flexible than the programmatic tx mgmt which allows you to control transaction through your code.
+
+But as a kind of crosscutting concern, declarative transaction mgmt can be modularized with the AOP approach.
+
+Spring support declarative transaction mgmt through the Spring AOP framework.
+
+Spring Transaction Abstractions:
+-------------------------------
+pg 130:
+The key to the spring transaction abstraction is defined by the 
+org.springframework.transaction.PlatformTransactionManager interface.
+
+public interface PlatformTransactionManager { 
+  TransactionStatus getTransaction(TransactionDefinition definition) throws TransactionException; 
+  void commit(TransactionStatus status) throws TransactionException; 
+  void rollback(TransactionStatus status) throws TransactionException; 
+  }
+getTransaction - returns a currently active transaction or create a new one according to the specified propagation behavior.
+Commit - Commits the given transaction, with regard to its status.
+Rollback - Performs a rollback of the given transaction.
+
+The TransactionDefinition is the core interface of the transaction support in Spring and it is defined as below: 
+
+public interface TransactionDefinition { 
+    int getPropagationBehavior();  - returns the propagation behavior (similar options from EJB CMT)
+    int getIsolationLevel();  - returns the degree t
+    String getName(); 
+    int getTimeout(); 
+    boolean isReadOnly(); 
+  }
 
 
 
