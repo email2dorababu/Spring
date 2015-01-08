@@ -2,3 +2,108 @@
 Chapter 21
 Spring Transaction Management
 ###########################
+A Database transaction is a sequence of actions that are treated as a single unit of work.
+These actions should either complete entirely or take no effect at all.
+Transaction management is an imp part of RDBMS oriented enterprise applications to ensure data integrity and Consistency.
+
+Four Key properties of transactioins is described as ACID:
+1.Atomicity: A transaction should be treated as a single unit of operation. Means either the entier sequence of operations is
+successful or unsuccesful
+2.Consistency: Represetns the consistency of the referential integrity of the database, Unique primary keys in tables etc.
+3.Isolation: There may be many transactions with the same data set at the same time, each transaction should be isolated from
+others to prevent data corruption.
+4. Durability: Once a transaction has completed, the results of this trasaction have to be made permanent and cannot be 
+erased from the database due to system failure.
+
+A real RDBMS will guarantee all the four properties for each transaction. 
+The Trasaction is viewd in a simple manner as :
+1. Begin the transaction using begin transaction command.
+2. Perform various deleted, update or insert operations using SQL queries.
+3. If all the operations are successful then perform commit otherwise rollback all the operations.
+
+Spring's transaction support aims to provide an alternative to EJB transactions by adding transaction capabilities to POJOS.
+
+Spring supports both Programmatic and declarative transaction management.
+EJB Requires an application server, but Spring transaction management can be implemented 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
