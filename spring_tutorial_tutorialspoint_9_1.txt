@@ -4,3 +4,88 @@ Sprign Web MVC Framework:
 ###################################
 Pg 144:
 
+The Spring Web MVC Framework provides model-view-controller architecutre and provides ready components that can be used to
+develop flexible and loosely coupled web applications.
+The MVC pattern results in separating the different aspects of the application (input logic, business logic, and UI logic),
+while providing a loose coupling between these elements.
+
+1. The Model encapsulates the application data and in general they will cinsist of POJO.
+2. The View is responsible for rendering the model data in general it generates HTML output that the Client's browser can 
+interpret.
+3. The Controller is responsible for processing user requests and building appropriate model and passes it to the view for 
+rendering.
+
+The DispatcherServlet:
+-----------------------
+
+The Spring Web MVC framework is designed around a DispatcherServlet that handle all the HTTP requests and responses.
+The request processing workflow of the Spring Web MVC DispatcherServlet is as following:
+The Sequece of events corresponding to an incoming HTTP request to DispatcherServlet:
+1.After recieving an HTTP request, DispatcherServlet consults the HandleMapping to call the appropriate Controller.
+2.The Controller takes takes the requests and calls the appropriate service methods based on used GET or POST method.
+The service method will set model data based on defined business logic and returns view name to the DispatcherServlet.
+3. The Dispather Servlet will take help from ViewResolver to pickup the defined view for the request.
+4.Once view is finalized, the Dispatcher Servlet passes the model data to the view which is finally rendered on the browser.
+
+
+All the above mentioned components i.e HandlerMapping, COntroller and ViewResolver are parts of WebApplicationContext which 
+is an extension of the plain ApplicationContext with some extra feature necessary for the web applications.
+
+PG:145:
+Required Configuration:
+----------------------
+You need to map requests that you want  the DispatcherServlet to handle, by using a URL mapping in the Web.XML file.
+Example:
+Web.xml file will be kept in WebContent/WEB-INF directory of your web application.
+Upon initialixation of HelloWeb DispatcherServlet, the framework will try to load the application context from a file named
+[servlet-name]-Servlet.xml located in the application's WebContent/WEB-INF directory. In this case our file will be 
+HelloWeb-servlet.xml
+Next <servlet-mapping> tag indicates what URL's will be handled by the which DispatcherSevlet. here all the HTTP requests 
+ending with .jsp will be handled by the HelloWeb DispatcherServlet.
+
+If you do not want to go with default file name as [servlet-name]-servlet.xml and default location as WebContent/WEB-INF, you
+can customize this file name and location by adding the servlet listenerContextListener in your web.xml file.
+
+Page 145 END
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
