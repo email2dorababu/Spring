@@ -75,85 +75,46 @@ The TransactionDefinition is the core interface of the transaction support in Sp
 
 public interface TransactionDefinition { 
     int getPropagationBehavior();  - returns the propagation behavior (similar options from EJB CMT)
-    int getIsolationLevel();  - returns the degree t
-    String getName(); 
-    int getTimeout(); 
-    boolean isReadOnly(); 
+    int getIsolationLevel();  - returns the degree to which this transaction is isolated from the work of other txs.
+    String getName(); - returns the name of this transaction
+    int getTimeout(); -returns the time in seconds in which the transaction must complete
+    boolean isReadOnly(); - returns whether the transaction is read-only
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Possible values for isolation level:
+1.Isolation_default - default isolation level
+2.Isolation_read_commited - indicates that dirty reads are prevented, non-repeatable and phantom reads can occur.
+3.Isolation_read_uncommitted.-indicates dirty reads,non-repeatable and phantom reads can occur.
+4.Isolation_repeatable_read -Indicates dirty reads,non-repeatable reads are prevented, ohantom reads can occur.
+5.Isolation_serializable - indicates dirty reads,non repeatable reads and phantom reads are prevented.
+
+Following are possible values for propagation types:
+1.Propagation_mandatory - supports current transaction, throws exception if no current transaction exists.
+2.Propagation_nested - execute within a nested transaction if a curent transaction exists.
+3.Propagation_never - throws an exception if a current transaction exists.
+4.Propagation_not_supported - Do not support a current transaction , rather always execute non-transactionally.
+5.Propagation_required - support a current transaction; create a new one if none exists.
+6.Propagatopon_requires_new
+7.Propagation_supports
+8.Timeout_default
+
+PG 132 : TransactionStatus interface read more
+
+Programmatic Transaction Management
+-----------------------------------
+Programmatic transaction management approach allows you to manage the transaction with the help of programmng in your source
+code. this gives you extreme flexibility, but it is difficult to maintain.
+EXAMPLE
+
+pg 138: Declarative Transacton management:
+-----------------------------------------
+this declarative transaction management approach allows you to manaage the transaction with the help of configuration insted
+of hard conding in your source code. This means that you can separate transaction managemnt from the business code.
+You only use annotations of XML based configuration to manage the transactions. The bean configuration will specify the 
+methods to be transactional. The belw are the steps associated with declarative transaction:
+1. We use <tx:advice /> tag. which creates a transaction-handling Advice and same time we define a pointcut that matches all 
+methods we wish to make transacitonal and reference the transactional advice.
+2. If a method name has been included in the trasactional cofiguration then created advice will begin the transaction before
+calling the method
+3.Target method will be executed in a try/catch block
+4. If the method finishes normally , the SOP advice commits the transaction succesfully otherwise it performs a rollback.
