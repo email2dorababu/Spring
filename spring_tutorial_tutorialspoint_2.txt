@@ -28,6 +28,9 @@ Example :
 pg 34:
 InitHelloWorld implements BPP and have 2 methods : 
 postProcessBeforeInitialization and PostProcessAfterInitialization returns Object(i.e Bean).
+----------------
+NOTE:
+------------------
  you need to define this in configuration XML without any id etc.
  <bean class="com.tutorialspoint.InitHelloWorld" />
  
